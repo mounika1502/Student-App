@@ -1,0 +1,125 @@
+<div class="container">
+    <h1>STUDENT DETAILS</h1>
+    <div> 
+        <label for="search" class="form-label" ></label>
+        <input type="text" [(ngModel)]="Searchtext" name="array id" class="search"  placeholder="Search here">
+       
+       <!-- <div class="form-wrapper" *ngIf="showForm"></div> -->
+        <button class="add" (click)="toggle()"><h3>Add Student Data </h3></button>
+        <button class="get" (click)="getStudents()" (click)="toggleStudents()"><h3>Get Student Data</h3></button>
+        
+    </div>
+    
+
+        <table *ngIf="Students" matSort>
+          
+               
+          <table class="table" border="1" >
+            <thead style="background-color:rgb(75, 138, 232);color: white;">
+              <tr>
+                <th>Firstname </th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Branch</th>
+                <th>CollegeName</th>
+                <th>Mobile</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody class="text">
+              <tr  *ngFor="let Student of StudentsArray | filter : Searchtext">
+                
+                <td><input type="text" [disabled]="this.isHidden" #Firstname value="{{Student.Firstname}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Lastname value="{{Student.Lastname}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Gender value="{{Student.Gender}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Email value="{{Student.Email}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #DOB value="{{Student.DOB}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Branch value="{{Student.Branch}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #CollegeName value="{{Student.CollegeName}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Mobile value="{{Student.Mobile}}"></td>
+                <td>
+                  <button class="bt" (click)="editDoc()" (click)="this.isHidden ? updateStudentData(Firstname.value,Lastname.value,Gender.value,Email.value,DOB.value,Branch.value,CollegeName.value,Mobile.value):false">{{this.isHidden ? "Edit" : "Save"}}</button>
+                </td>
+                <td>
+                  <button style="background-color:red;color:white" class="btn btn-danger" (click)="deletedata(Student._id)" >Delete</button>
+                </td>
+                
+              </tr>
+            </tbody>  
+            </table>
+        </table>
+          
+        
+      
+    
+  
+    <div *ngIf="form" >
+        <form [formGroup]= "registerForm" #userPost="ngForm" (ngSubmit)= "registerSubmitted(userPost.value)" class="box" >
+
+                
+           <h2>Student Registration Form</h2>
+        <table>                      
+            <tr> 
+                <td><label class="fname"> First name: </label></td>
+                <td><input type="text" placeholder="fname" id="Firstname" formControlName="Firstname" value="firstName"></td>
+            </tr>
+              <tr><td><span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span></td></tr><br>
+            <tr>
+                <td><label  class="lname">Last name:</label> </td>
+                <td><input type="text" placeholder="last name" id="Lastname" formControlName="Lastname" value=""><br></td>
+            </tr>
+            <tr><td><span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span></td></tr><br>
+            <tr>
+                <td><label  class="gender">Gender:</label></td>
+                <td><input type="radio" name="Gender" id="Gender" formControlName="Gender" value="male">male
+                    <input type="radio" name="Gender" formControlName="Gender" value="female">female
+                    <input type="radio" name="Gender" formControlName="Gender" value="others"></td>others
+            </tr>
+            <tr><td><span style="color: red;" *ngIf="Gender && Gender.invalid && Gender.touched">Please select your option</span></td></tr><br>
+            <tr>
+                <td><label  class="dob">Date of Birth: </label></td>
+                <td><input type="date" class="date" placeholder="dd/mm/yyyy" id="DOB" value="" formControlName="DOB"><br></td>
+            </tr>
+            <tr><td><span style="color: red;" *ngIf="DOB && DOB.invalid && DOB.touched">Please enter the correct data</span></td></tr><br>
+            <tr>
+                <td><label  class="email">E-mail:</label></td>
+                <td><input type="text" placeholder="Email" id="Email" formControlName="Email" value=""><br></td>
+            </tr>
+            <tr><td><span style="color: red;" *ngIf="Email && Email.invalid && Email.touched">Please enter your correct email</span></td></tr><br>
+            <tr>
+              <td><label  class="branch">Branch:</label></td>
+                  <td><select name="" id="Branch" class="date" formControlName="Branch">
+                  <option></option>
+                  <option>Ece(B.Tech)</option>
+                  <option>CSE(B.Tech)</option>
+                  <option>Bca</option>
+                  <option>Bsc.computers</option></select></td>
+            </tr>
+            <tr>
+              <td><label  class="college">College Name:</label></td>
+                  <td><select name="" id="CollegeName" class="date" formControlName="CollegeName" >
+                  <option ></option>
+                  <option >Pace college</option>
+                  <option >Qis college</option>
+                  <option >Harshini college</option>
+                  <option >SSN college</option></select></td>
+          </tr>
+          <tr><td><span style="color: red;" *ngIf="CollegeName && CollegeName.invalid && CollegeName.touched">Please select your option</span></td></tr><br>   
+          <tr>
+              <td><label  class="tel">Mobile:</label></td>
+              <td><input type="text" placeholder="xxx xxx xxx" id="Mobile" formControlName="Mobile" ></td>
+          </tr>
+          <tr><td><span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched">Please enter the correct data</span></td></tr><br>
+          <tr>
+             <td><button type="submit" id="submit"  class="btt" >Submit</button></td>
+          </tr>
+        </table>
+        </form>
+       
+    </div>
+      
+
+

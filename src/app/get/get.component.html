@@ -1,0 +1,48 @@
+<!-- 
+ <label for="search" class="form-label" ></label>
+ <input type="text" [(ngModel)]="Searchtext" name="array id" class="search"  placeholder="Search here">
+<button class="get" (click)="getStudents()" (click)="toggleStudents()"><h3>Get Student Data</h3></button>
+<div class="form-wrapper" *ngIf="showForm"></div>
+        <table *ngIf="Students" matSort>
+          
+               
+          <table class="table" border="1" >
+            <thead style="background-color:rgb(75, 138, 232);color: white;">
+              <tr>
+                <th>Firstname </th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Branch</th>
+                <th>CollegeName</th>
+                <th>Mobile</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody class="text">
+              <tr  *ngFor="let Student of StudentsArray | filter : Searchtext">
+                
+                <td><input type="text" [disabled]="this.isHidden" #Firstname value="{{Student.Firstname}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Lastname value="{{Student.Lastname}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Gender value="{{Student.Gender}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Email value="{{Student.Email}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #DOB value="{{Student.DOB}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Branch value="{{Student.Branch}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #CollegeName value="{{Student.CollegeName}}"></td>
+                <td><input type="text" [disabled]="this.isHidden" #Mobile value="{{Student.Mobile}}"></td>
+                <td>
+                  <button class="bt" (click)="editDoc()" (click)="this.isHidden ? updateStudentData(Firstname.value,Lastname.value,Gender.value,Email.value,DOB.value,Branch.value,CollegeName.value,Mobile.value):false">{{this.isHidden ? "Edit" : "Save"}}</button>
+                </td>
+                <td>
+                  <button style="background-color:red;color:white" class="btn btn-danger" (click)="deletedata(Student._id)" >Delete</button>
+                </td>
+                
+              </tr>
+            </tbody>  
+            </table>
+        </table>
+          
+        
+       -->

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Registration Form</title>
+        
+    </head>
+    <body>
+        <form [formGroup]= "registerForm" (ngSubmit)= "registerSubmitted()" class="box">
+        
+        <h3>Student Registration Form</h3>
+        <table>
+            <tr>
+                <td>Student image:<input type="file" name=""> </td>            
+            </tr>
+            <tr>              
+              <td> First name: </td>
+              <td><input type="text" placeholder="fname" id="firstName" formControlName="firstName"></td></tr>
+              
+              <tr><td><span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">Please enter your firstname</span></td></tr><br>
+            
+            <tr><td>Last name: </td>
+                <td><input type="text" placeholder="last name" id="lastName" formControlName="lastName"><br></td></tr>
+            <tr><td><span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched">Please enter your lastname</span></td></tr><br>
+            
+            <tr><td>Gender:</td>
+                <td>male<input type="radio" name="gender" id="gender" formControlName="gender" value="m">
+                    female<input type="radio" name="gender" formControlName="gender" value="f">
+                    others<input type="radio" name="gender" formControlName="gender" value="o"></td></tr>
+              
+              <tr><td><span style="color: red;" *ngIf="gender && gender.invalid && gender.touched">Please select your option</span></td></tr><br>
+              <tr><td>Date of Birth </td>
+                  <td><input type="date" placeholder="dd/mm/yyyy" id="dateofbirth" formControlName="dateofbirth"><br></td></tr>
+              <tr><td><span style="color: red;" *ngIf="dateofbirth && dateofbirth.invalid && dateofbirth.touched">Please enter the correct data</span></td></tr><br>
+              <tr><td>E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  <td><input type="text" placeholder="Email" id="email"formControlName="email"><br></td></tr>
+              <tr><td><span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your correct email</span></td></tr><br>
+              
+              <tr><td><label>Department:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select name="" id="department" formControlName="department">
+                    <option value="Ece">Ece</option>
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option></select> 
+                    <tr><td><span style="color: red;" *ngIf="department && department.invalid && department.touched">Please select your option</span></td></tr><br>   
+              <tr><td>Tel/Mobile:</td>
+                  <td><input type="text" placeholder="xxx xxx xxx" id="mobile" formControlName="mobile"><br></td></tr>
+              <tr><td><span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter the correct data</span></td></tr><br>
+              <tr><td><button type="button" id="submit" value="Submit" class="btn btn-primary">Submit</button></td></tr>
+        </table>
+        </form>
+       
+          </body>
+      
+</html>

@@ -1,0 +1,73 @@
+.container{
+    height:700px;
+    width: 100%;
+    background-color: rgb(148, 213, 237);
+    text-align: center;
+}
+.add{
+    height: 50px;
+    width: 20%;
+    background-color: rgb(64, 141, 173);
+    border: 0;
+    border-radius: 5px;
+    color: aliceblue;
+    margin-top: 1em;
+}
+.get{
+    height: 50px;
+    width: 20%;
+    background-color: rgb(64, 141, 173);
+    border: 0;
+    border-radius: 5px;
+    margin-left: 25em;
+    color: aliceblue;
+}
+.box{
+    text-align: center;
+    width: 400px;
+    border: 1px solid black;
+    margin-top: -30em;
+    font-size: 110%;
+    text-align: center;
+    border-radius: 5px ;
+    margin-left: 2em;
+    text-align: center;
+}
+.btt{
+    background-color:rgb(75, 138, 232);
+    color: white;
+    border-radius: 5px;
+    border:0;
+    width: 65px;
+    height: 25px;
+    margin-left:140% ;  
+ 
+}
+
+.date{
+    width: 65%;
+
+}
+.fname{
+    margin-left: -21px;
+    border-radius: 5%;
+}
+.lname{
+    margin-left: -21px;
+}
+.gender{
+    margin-left: -45px;
+}
+.email{
+    margin-left: -40px;
+}
+.branch{
+    margin-left: -37px;
+}
+.college{
+    margin-left: 10px;
+}
+.tel{
+    margin-left: -35px;
+}
+

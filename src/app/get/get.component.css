@@ -1,0 +1,32 @@
+.table{
+    border: 2;
+    height: 60px;
+    width:50px;
+    margin-top: 30px;
+    border-radius: 3px;
+}
+.headers{
+    background-color:rgb(75, 138, 232) ;
+    color: white;
+}
+.get{
+    height: 50px;
+    width: 20%;
+    background-color: rgb(64, 141, 173);
+    border: 0;
+    border-radius: 5px;
+    margin-left: 50em;
+    color: aliceblue;
+    margin-top:-20%;
+}
+.search{
+    height: 25px;
+    width: 350px;
+    margin-left: 15em;
+    border-radius: 5px;
+    margin-top: 4em;
+}
+.bt{
+    background-color: rgb(152, 185, 109);
+    color: white;
+}
